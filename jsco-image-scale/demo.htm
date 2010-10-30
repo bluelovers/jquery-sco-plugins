@@ -15,7 +15,8 @@
 		<script src="./jsco-image-scale.js"></script>
 		<script>
 			jQuery(function($) {
-				$(".resizeme").scoScale({height: 250, width: 250, mode: 'fill'});
+				$(".mode_default").scoScale({height: 250, width: 250});
+				$(".mode_fill").scoScale({height: 250, width: 250, mode: 'fill'});
 			});
 		</script>
 		<style>
@@ -28,6 +29,12 @@
 		</style>
 	</head>
 	<body>
+		<pre>
+			jQuery(function($) {
+				$(".mode_default").scoScale({height: 250, width: 250});
+				$(".mode_fill").scoScale({height: 250, width: 250, mode: 'fill'});
+			});
+		</pre>
 		<ul>
 			<li>
 				<h3>Sample 1</h3>
@@ -36,7 +43,8 @@
 				<img alt="Original Sample Image 1 - 400px x 300px" src="sample1.jpg">
 
 				<h4>Resized to 250px x 250px</h4>
-				<img alt="Resized Sample Image" class="resizeme" src="sample1.jpg">
+				<img alt="Resized Sample Image" class="mode_default" src="sample1.jpg">
+				<img alt="Resized Sample Image" class="mode_fill" src="sample1.jpg">
 			</li>
 			<li>
 				<h3>Sample 2</h3>
@@ -45,7 +53,8 @@
 				<img alt="Original Sample Image 2 - 300px x 400px" src="sample2.jpg">
 
 				<h4>Resized to 250px x 250px</h4>
-				<img alt="Resized Sample Image" class="resizeme" src="sample2.jpg">
+				<img alt="Resized Sample Image" class="mode_default" src="sample2.jpg">
+				<img alt="Resized Sample Image" class="mode_fill" src="sample2.jpg">
 			</li>
 		</ul>
 	</body>
