@@ -1,7 +1,7 @@
 (function($) {
 
 	$.fn.scoScale = function (options) {
-		var agv = $.extend({}, $.fn.scoScale.defaults, options);
+		var agv = $.extend(true, {}, $.fn.scoScale.defaults, options);
 
 //		alert($(this).length);
 
@@ -51,10 +51,10 @@
 
 				var newimg = _this.clone()
 //					$('<img/>').attr('src', _this.attr('src'))
-					.css(_e).css({'margin-top': 0 - _cm.top, 'margin-left': 0 - _cm.left});
+					.css(_e).css(agv.img.css).attr(agv.img.attr).css({'margin-top': 0 - _cm.top, 'margin-left': 0 - _cm.left});
 
 				var newdiv = $('<div></div>').height(agv.height).width(agv.width)
-					.css({'background-color': 'red', 'display': _this.css('display') == 'inline' ? 'inline-block' : 'block', 'overflow': 'hidden'})
+					.css(agv.div.css).attr(agv.div.attr).css({'display': _this.css('display') == 'inline' ? 'inline-block' : 'block', 'overflow': 'hidden'})
 					.append(
 						newimg
 					);
@@ -66,8 +66,7 @@
 				_this.hide();
 			}
 
-			_this.height(_e.height);
-			_this.width(_e.width);
+			_this.height(_e.height).width(_e.width).css(agv.img.css).attr(agv.img.attr);
 		});
 	};
 
@@ -75,7 +74,9 @@
 		mode: 'default',
 		scale: 1,
 		mode_replace: 'self',
-		pos: 5
+		pos: 5,
+		div: {attr:{},css:{}},
+		img: {attr:{},css:{}}
 	};
 
 	$.fn.scoRealsize = function() {
