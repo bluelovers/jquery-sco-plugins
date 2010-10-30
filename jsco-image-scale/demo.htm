@@ -1,0 +1,52 @@
+<html>
+	<head>
+		<meta charset=utf-8>
+		<title>Demo</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+		<script type="text/javascript">
+			jQuery.noConflict();
+
+			(function(_jQueryInit){
+				jQuery.fn.init = function(selector, context) {
+					return (jQuery._this = new _jQueryInit(selector, context));
+				};
+			})(jQuery.fn.init);
+		</script>
+		<script src="./jsco-image-scale.js"></script>
+		<script>
+			jQuery(function($) {
+				$(".resizeme").scoScale({height: 250, width: 250, mode: 'fill'});
+			});
+		</script>
+		<style>
+			img {
+				opacity:0.85;
+			}
+			img:hover {
+				opacity:1;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>
+				<h3>Sample 1</h3>
+
+				<h4>Original</h4>
+				<img alt="Original Sample Image 1 - 400px x 300px" src="sample1.jpg">
+
+				<h4>Resized to 250px x 250px</h4>
+				<img alt="Resized Sample Image" class="resizeme" src="sample1.jpg">
+			</li>
+			<li>
+				<h3>Sample 2</h3>
+
+				<h4>Original</h4>
+				<img alt="Original Sample Image 2 - 300px x 400px" src="sample2.jpg">
+
+				<h4>Resized to 250px x 250px</h4>
+				<img alt="Resized Sample Image" class="resizeme" src="sample2.jpg">
+			</li>
+		</ul>
+	</body>
+</html>
