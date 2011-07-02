@@ -37,15 +37,32 @@
 		});
 	};
 
+	$.fn.adblocked.defaults = {
+		mozilla: function (elem) {
+			return $(elem).css('-moz-binding').match(/url\s*\(\s*[\"\']?(about:abp-elemhidehit|chrome:\/\/global\/content\/bindings\/general\.xml#foobarbazdummy)/i);
+		},
+	};
+
+	$.each($.browser, function(i, val) {
+		if (i != 'version' && val == true) {
+			$.fn.adblocked.browser = i;
+			return false;
+		}
+	};
+
+	var _emp_func = function(){};
+
 	function _ishide(elem) {
 		var ret = null;
 
-		var ua = $.browser;
-		if (ua.mozilla) {
-			ret = $(elem).css('-moz-binding').match(/url\s*\(\s*[\"\']?(about:abp-elemhidehit|chrome:\/\/global\/content\/bindings\/general\.xml#foobarbazdummy)/i);
+		var _func = null;
+		_func = $.fn.adblocked.defaults[$.fn.adblocked.browser];
+
+		if (!_func || _func == null || _func == _emp_func) {
+			_func = $.fn.adblocked.defaults.mozilla;
 		}
 
-		return ret;
+		return _func(elem);
 	}
 
 })(jQuery);
