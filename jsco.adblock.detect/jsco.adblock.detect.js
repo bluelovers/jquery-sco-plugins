@@ -1,3 +1,8 @@
+/**
+ * AdBlock Detection with jQuery
+ *
+ * @url https://github.com/bluelovers/jquery-sco-plugins
+ **/
 (function($){
 
 	/**
