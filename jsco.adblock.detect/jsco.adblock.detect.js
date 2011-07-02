@@ -3,7 +3,7 @@
  *
  * @url https://github.com/bluelovers/jquery-sco-plugins
  **/
-(function($){
+(function($, undefined){
 
 	/**
 	 * MozBinding style property
