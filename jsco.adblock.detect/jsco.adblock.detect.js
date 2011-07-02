@@ -33,7 +33,14 @@
 	};
 
 	function _ishide(elem) {
-		return jQuery(elem).css('-moz-binding').match(/url\s*\(\s*[\"\']?(about:abp-elemhidehit|chrome:\/\/global\/content\/bindings\/general\.xml#foobarbazdummy)/i);
+		var ret = null;
+
+		var ua = $.browser;
+		if (ua.mozilla) {
+			ret = $(elem).css('-moz-binding').match(/url\s*\(\s*[\"\']?(about:abp-elemhidehit|chrome:\/\/global\/content\/bindings\/general\.xml#foobarbazdummy)/i);
+		}
+
+		return ret;
 	}
 
 })(jQuery);
