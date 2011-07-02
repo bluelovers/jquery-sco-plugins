@@ -37,12 +37,24 @@
 		});
 	};
 
+	/**
+	 * browser default hander function
+	 **/
 	$.fn.adblocked.defaults = {
 		mozilla: function (elem) {
 			return $(elem).css('-moz-binding').match(/url\s*\(\s*[\"\']?(about:abp-elemhidehit|chrome:\/\/global\/content\/bindings\/general\.xml#foobarbazdummy)/i);
 		},
 	};
 
+	/**
+	 * browser hander function for hack/addon
+	 **/
+	$.fn.adblocked.options = {};
+
+	/**
+	 * cache browser name
+	 * @example $.fn.adblocked.browser
+	 **/
 	$.each($.browser, function(i, val) {
 		if (i != 'version' && val == true) {
 			$.fn.adblocked.browser = i;
@@ -50,16 +62,19 @@
 		}
 	};
 
+	// try check empty function
 	var _emp_func = function(){};
 
 	function _ishide(elem) {
 		var ret = null;
 
-		var _func = null;
-		_func = $.fn.adblocked.defaults[$.fn.adblocked.browser];
+		var _list = $.extend({}, $.fn.adblocked.defaults, $.fn.adblocked.options);
+		var _func = _list.mozilla;
 
-		if (!_func || _func == null || _func == _emp_func) {
-			_func = $.fn.adblocked.defaults.mozilla;
+		_func = _list[$.fn.adblocked.browser];
+
+		if (!_func || _func == null || _func == _emp_func || _func = 'undefined' || _func == undefined) {
+			_func = _list.mozilla;
 		}
 
 		return _func(elem);
