@@ -1,6 +1,10 @@
 (function($){
 
-	// get all by adblock hide elem
+	/**
+	 * get all by adblock hide elem
+	 *
+	 * @return [div.inline-ad, div#AdSense1.widget]
+	 **/
 	jQuery('*').filter(function(){
 		return _ishide(this);
 	});
