@@ -78,10 +78,14 @@
 
 				_this
 					.css(
-						$.extend({}, _e, agv.img.css, {
+						$.extend({},
+							_e,
+							agv.img.css,
+							{
 								'margin-top': 0 - _cm.top,
 								'margin-left': 0 - _cm.left,
-						})
+							}
+						)
 					)
 					.after(
 						newdiv
