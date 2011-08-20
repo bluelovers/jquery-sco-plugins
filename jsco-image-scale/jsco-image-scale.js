@@ -62,7 +62,9 @@
 				var newdiv = $('<div></div>')
 					.height(agv.height)
 					.width(agv.width)
-					.css(agv.div.css)
+					.css(
+						agv.div.css
+					)
 					.attr(agv.div.attr)
 					.css({'display': _this.css('display') == 'inline' ? 'inline-block' : 'block', 'overflow': 'hidden'})
 					/*
