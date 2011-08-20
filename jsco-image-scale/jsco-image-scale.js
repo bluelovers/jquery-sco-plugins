@@ -102,7 +102,7 @@
 		_o = $.extend(_o, _oo[0]);
 
 		return _o;
-	}
+	};
 
 	function _pos(_e, agv, options) {
 		var _p = {
@@ -172,7 +172,7 @@
 		_p.right = Math.floor(_p.right);
 
 		return _p;
-	}
+	};
 
 	function _scale_size(attr, p) {
 		if (!p) p = 1;
