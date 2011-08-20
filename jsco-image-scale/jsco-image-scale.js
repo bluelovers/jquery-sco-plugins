@@ -18,7 +18,7 @@
 
 			var _is_height		= (_o.height >= _o.width) ? 1 : 0;
 
-			if (agv.mode == 'fill' || agv.mode.test(/^fill/)) {
+			if (agv.mode == 'fill' || /^fill/.test(agv.mode)) {
 				_is_height = !_is_height;
 			} else if (!agv.height && _is_height && agv.width) {
 				_is_height = 0;
