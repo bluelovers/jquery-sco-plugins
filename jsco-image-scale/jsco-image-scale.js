@@ -53,21 +53,41 @@
 			if (agv.mode == 'fill') {
 				var _cm = _pos(_e, agv, agv.pos);
 
+				/*
 				var newimg = _this.clone()
 //					$('<img/>').attr('src', _this.attr('src'))
 					.css(_e).css(agv.img.css).attr(agv.img.attr).css({'margin-top': 0 - _cm.top, 'margin-left': 0 - _cm.left});
+				*/
 
 				var newdiv = $('<div></div>').height(agv.height).width(agv.width)
 					.css(agv.div.css).attr(agv.div.attr).css({'display': _this.css('display') == 'inline' ? 'inline-block' : 'block', 'overflow': 'hidden'})
+					/*
 					.append(
 						newimg
-					);
+					)
+					*/
+				;
 
+				/*
 				_this.after(
 					newdiv
 				);
 
 				_this.hide();
+				*/
+
+				_this
+					.css(
+						$.extend({}, _e, agv.img.css, {
+								'margin-top': 0 - _cm.top,
+								'margin-left': 0 - _cm.left,
+						})
+					)
+					.after(
+						newdiv
+					)
+					.appendTo(newdiv)
+				;
 			}
 
 			_this.height(_e.height).width(_e.width).css(agv.img.css).attr(agv.img.attr);
