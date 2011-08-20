@@ -59,15 +59,19 @@
 					.css(_e).css(agv.img.css).attr(agv.img.attr).css({'margin-top': 0 - _cm.top, 'margin-left': 0 - _cm.left});
 				*/
 
-				var newdiv = $('<div></div>')
+				var newdiv = $('<div/>')
 					.height(agv.height)
 					.width(agv.width)
-					.css(
-						agv.div.css
-					)
+					.css($.extend({},
+						agv.div.css,
+						{
+							'display': _this.css('display') == 'inline' ? 'inline-block' : 'block',
+							'overflow': 'hidden'
+						}
+					))
 					.attr(agv.div.attr)
-					.css({'display': _this.css('display') == 'inline' ? 'inline-block' : 'block', 'overflow': 'hidden'})
 					/*
+					.css({'display': _this.css('display') == 'inline' ? 'inline-block' : 'block', 'overflow': 'hidden'})
 					.append(
 						newimg
 					)
