@@ -16,6 +16,10 @@
 				width: _o.width * _p,
 			};
 
+			if (!_e.height || !_e.width) {
+				return;
+			}
+
 			var _is_height		= (_o.height >= _o.width) ? 1 : 0;
 
 			if (agv.mode == 'fill' || /^fill/.test(agv.mode)) {
