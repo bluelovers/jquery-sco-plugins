@@ -89,7 +89,12 @@
 					.appendTo(newdiv)
 				;
 			} else {
-				_this.height(_e.height).width(_e.width).css(agv.img.css).attr(agv.img.attr);
+				_this
+					.height(_e.height)
+					.width(_e.width)
+					.css(agv.img.css)
+					.attr(agv.img.attr)
+				;
 			}
 		});
 	};
