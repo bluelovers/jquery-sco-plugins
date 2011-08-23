@@ -154,8 +154,8 @@
 				coordinates[0] = position;
 				coordinates[1] = position;
 		    } else if (coordinates.length != 2) {
-		    	coordinates[0] = 'auto';
-		    	coordinates[1] = 'auto';
+		    	coordinates[0] = $.support[var_name].values.x;
+		    	coordinates[1] = $.support[var_name].values.y;
 		    }
 
 		    var ret = {
@@ -182,7 +182,7 @@
 			} else if (rnum.test(value)) {
 				value += 'px';
 			} else if (!$.support[var_name].regex.allow_val.test(value)) {
-				value = $.support[var_name].values.def;
+				value = $.support[var_name].values.error;
 			}
 
 			return value;
