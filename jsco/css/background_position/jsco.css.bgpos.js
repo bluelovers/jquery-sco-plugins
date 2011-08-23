@@ -93,61 +93,61 @@
 
 	if (!$.support.backgroundPositionXY) {
 
-	$.cssHooks[var_name_x] = {
-	    get: function (element, computed, extra) {
-	    	var $element = $(element);
+		$.cssHooks[var_name_x] = {
+		    get: function (element, computed, extra) {
+		    	var $element = $(element);
 
-	        var x = get_coordinate(1, $element);
+		        var x = get_coordinate(1, $element);
 
-	        if (!x) return;
+		        if (!x) return;
 
-	        return x;
-	    },
+		        return x;
+		    },
 
-	    set: function (element, x) {
-	        var $element = $(element);
+		    set: function (element, x) {
+		        var $element = $(element);
 
-	        var y = get_coordinate(2, $element);
+		        var y = get_coordinate(2, $element);
 
-	        if (!y) return;
+		        if (!y) return;
 
-	        if (rnum.test(x)) x += 'px';
+		        if (rnum.test(x)) x += 'px';
 
-	        $element.css('background-position', get_position([x, y]));
-	    }
-	};
+		        $element.css('background-position', get_position([x, y]));
+		    }
+		};
 
-	$.cssHooks[var_name_y] = {
-	    get: function (element, computed, extra) {
-	    	var $element = $(element);
+		$.cssHooks[var_name_y] = {
+		    get: function (element, computed, extra) {
+		    	var $element = $(element);
 
-	        var y = get_coordinate(2, $element);
+		        var y = get_coordinate(2, $element);
 
-	        if (!y) return;
+		        if (!y) return;
 
-	        return y;
-	    },
+		        return y;
+		    },
 
-	    set: function (element, y) {
-	        var $element = $(element);
+		    set: function (element, y) {
+		        var $element = $(element);
 
-	        var x = get_coordinate(1, $element);
+		        var x = get_coordinate(1, $element);
 
-	        if (!x) return;
+		        if (!x) return;
 
-	        if (rnum.test(y)) y += 'px';
+		        if (rnum.test(y)) y += 'px';
 
-	        $element.css('background-position', get_position([x, y]));
-	    }
-	};
+		        $element.css('background-position', get_position([x, y]));
+		    }
+		};
 
-	$.fx.step[var_name_x] = function (fx) {
-	    $.cssHooks[var_name_x].set(fx.elem, fx.now + fx.unit);
-	};
+		$.fx.step[var_name_x] = function (fx) {
+		    $.cssHooks[var_name_x].set(fx.elem, fx.now + fx.unit);
+		};
 
-	$.fx.step[var_name_y] = function (fx) {
-	    $.cssHooks[var_name_y].set(fx.elem, fx.now + fx.unit);
-	};
+		$.fx.step[var_name_y] = function (fx) {
+		    $.cssHooks[var_name_y].set(fx.elem, fx.now + fx.unit);
+		};
 
 	}
 
