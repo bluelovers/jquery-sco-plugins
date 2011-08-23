@@ -66,6 +66,12 @@
 		var rnum = /^[+\-]?\d+$/;
 		var allow_val = /^[+\-]?\d+(px|\%|em|pt)/;
 
+		$.extend($.support[var_name], {
+			regex : {
+				allow_val : /^[+\-]?\d+(px|\%|em|pt)/,
+			},
+		});
+
 		if (!$.support[var_name].pos && $.support[var_name].xy) {
 			$.cssHooks[var_name] = {
 			    get: function (element, computed, extra) {
@@ -170,7 +176,7 @@
 				value = '100%';
 			} else if (rnum.test(value)) {
 				value += 'px';
-			} else if (!allow_val.test(value)) {
+			} else if (!$.support[var_name].regex.allow_val.test(value)) {
 				value = '';
 			}
 
