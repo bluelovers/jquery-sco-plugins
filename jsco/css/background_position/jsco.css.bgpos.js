@@ -77,6 +77,7 @@
 		delete _div;
 	} catch (e) {}
 
+	/*
 	var ralpha = /alpha\([^)]*\)/i,
 		ropacity = /opacity=([^)]*)/,
 		// fixed for IE9, see #8346
@@ -90,9 +91,12 @@
 		cssWidth = [ "Left", "Right" ],
 		cssHeight = [ "Top", "Bottom" ],
 		_u;
+	*/
+
+	if (!$.support.backgroundPositionXY || !$.support.backgroundPosition) {
+		var rnum = /^[+\-]?\d+$/;
 
 	if (!$.support.backgroundPositionXY) {
-
 		$.cssHooks[var_name_x] = {
 		    get: function (element, computed, extra) {
 		    	var $element = $(element);
@@ -163,5 +167,7 @@
 		}
 
 		return value;
+	}
+
 	}
 })(jQuery);
