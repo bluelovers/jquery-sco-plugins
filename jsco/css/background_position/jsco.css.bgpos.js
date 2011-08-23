@@ -70,6 +70,9 @@
 			regex : {
 				allow_val : /^[+\-]?\d+(px|\%|em|pt)/,
 			},
+			setting : {
+				default_value : '',
+			},
 		});
 
 		if (!$.support[var_name].pos && $.support[var_name].xy) {
@@ -177,7 +180,7 @@
 			} else if (rnum.test(value)) {
 				value += 'px';
 			} else if (!$.support[var_name].regex.allow_val.test(value)) {
-				value = '';
+				value = $.support[var_name].setting.default_value;
 			}
 
 			return value;
