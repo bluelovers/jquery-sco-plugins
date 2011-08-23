@@ -155,7 +155,7 @@
 
 	}
 
-	function val2px(value) {
+	var val2num = function (value) {
 		value = value.toLowerCase();
 
 		if (value == 'top' || value == 'left') {
@@ -167,7 +167,7 @@
 		}
 
 		return value;
-	}
+	};
 
 	}
 })(jQuery);
