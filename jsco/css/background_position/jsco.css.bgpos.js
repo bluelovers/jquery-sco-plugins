@@ -113,13 +113,10 @@
 			    set: function (element, y) {
 			        var $element = $(element);
 
-			        var x = get_coordinate(1, $element);
+			        var ret = get_background_position($element);
+			        y = val2num(y);
 
-			        if (!x) return;
-
-			        if (rnum.test(y)) y += 'px';
-
-			        $element.css('background-position', get_position([x, y]));
+			        $element.css('background-position', get_position([ret.x, y]));
 			    }
 			};
 
