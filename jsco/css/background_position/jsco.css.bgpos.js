@@ -148,6 +148,14 @@
 	};
 
 	function val2px(value) {
+		value = value.toLowerCase();
 
+		if (value == 'top' || value == 'left') {
+			value = '0%';
+		} else if (value == 'right' || value == 'bottom') {
+			value = '100%';
+		}
+
+		return value;
 	}
 })(jQuery);
