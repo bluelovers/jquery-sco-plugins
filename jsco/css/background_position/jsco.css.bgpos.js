@@ -32,10 +32,6 @@
   	 * @see https://github.com/bluelovers/jquery-sco-plugins
 	 **/
 
-	function get_position(coordinates) {
-	    return coordinates.join(' ');
-	}
-
 	var var_name = $.camelCase('background-position');
 	var var_name_x = $.camelCase('background-position-x');
 	var var_name_y = $.camelCase('background-position-y');
@@ -125,6 +121,10 @@
 		    };
 
 		    return ret;
+		}
+
+		function get_position(coordinates) {
+		    return coordinates.join(' ');
 		}
 
 		var val2num = function (value) {
