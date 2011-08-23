@@ -151,7 +151,11 @@
 		function get_background_position($element) {
 		    var position = $element.css('background-position');
 
-		    if (!position) position = 'auto';
+			var coordinates = position.split(' ');
+		    if (coordinates.length != 2) {
+		    	coordinates[0] = 'auto';
+		    	coordinates[1] = 'auto';
+		    }
 
 		    return position;
 		}
