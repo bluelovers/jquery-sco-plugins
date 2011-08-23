@@ -92,13 +92,7 @@
 		if (!$.support.backgroundPositionXY) {
 			$.cssHooks[var_name_x] = {
 			    get: function (element, computed, extra) {
-			    	var $element = $(element);
-
-			        var x = get_coordinate(1, $element);
-
-			        if (!x) return;
-
-			        return x;
+			        return get_background_position($(element)).x;
 			    },
 
 			    set: function (element, x) {
