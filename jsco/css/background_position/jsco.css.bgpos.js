@@ -158,6 +158,8 @@
 			value = '0%';
 		} else if (value == 'right' || value == 'bottom') {
 			value = '100%';
+		} else if (rnum.test(value)) {
+			value += 'px';
 		}
 
 		return value;
