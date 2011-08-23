@@ -65,8 +65,17 @@
 	    return coordinates[index - 1];
 	}
 
+	var var_name = $.camelCase('background-position');
 	var var_name_x = $.camelCase('background-position-x');
 	var var_name_y = $.camelCase('background-position-y');
+
+	var _div = $('<div style="background-position: 3px 5px"/>');
+	$.support[var_name] = $div.css(var_name) === "3px 5px" ? true : false;
+	$.support.backgroundPositionXY = $div.css(var_name_x) === "3px" ? true : false;
+	try {
+		_div = null;
+		delete _div;
+	} catch (e) {}
 
 	var ralpha = /alpha\([^)]*\)/i,
 		ropacity = /opacity=([^)]*)/,
