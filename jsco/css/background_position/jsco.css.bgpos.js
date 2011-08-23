@@ -70,8 +70,10 @@
 			regex : {
 				allow_val : /^[+\-]?\d+(px|\%|em|pt)/,
 			},
-			setting : {
-				default_value : '',
+			values : {
+				error : '',
+				x : 'auto',
+				y : 'auto',
 			},
 		});
 
@@ -180,7 +182,7 @@
 			} else if (rnum.test(value)) {
 				value += 'px';
 			} else if (!$.support[var_name].regex.allow_val.test(value)) {
-				value = $.support[var_name].setting.default_value;
+				value = $.support[var_name].values.def;
 			}
 
 			return value;
