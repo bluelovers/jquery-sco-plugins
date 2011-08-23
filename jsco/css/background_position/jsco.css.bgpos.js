@@ -131,7 +131,7 @@
 			value = value.toLowerCase();
 
 			if (value == 'top' || value == 'left') {
-				value = '0%';
+				value = '0px';
 			} else if (value == 'right' || value == 'bottom') {
 				value = '100%';
 			} else if (rnum.test(value)) {
