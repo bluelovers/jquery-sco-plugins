@@ -130,8 +130,12 @@
 
 		}
 
-		function get_background_position($element) {
+		function get_background_position($element, notelem) {
+			if (notelem) {
+				var position = $element;
+			} else {
 		    var position = $element.css('background-position');
+		    }
 
 			var coordinates = position.split(/\s/);
 		    if (coordinates.length != 2) {
