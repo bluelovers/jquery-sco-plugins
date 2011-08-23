@@ -110,13 +110,7 @@
 
 			$.cssHooks[var_name_y] = {
 			    get: function (element, computed, extra) {
-			    	var $element = $(element);
-
-			        var y = get_coordinate(2, $element);
-
-			        if (!y) return;
-
-			        return y;
+			    	return get_background_position($(element)).y;
 			    },
 
 			    set: function (element, y) {
