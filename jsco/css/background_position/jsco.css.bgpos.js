@@ -134,7 +134,7 @@
 			if (notelem) {
 				var position = $element;
 			} else {
-		    var position = $element.css('background-position');
+		    	var position = $element.css('background-position');
 		    }
 
 			var coordinates = position.split(/\s/);
