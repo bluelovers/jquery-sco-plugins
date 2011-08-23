@@ -146,4 +146,8 @@
 	$.fx.step[var_name_y] = function (fx) {
 	    $.cssHooks[var_name_y].set(fx.elem, fx.now + fx.unit);
 	};
+
+	function val2px(value) {
+
+	}
 })(jQuery);
