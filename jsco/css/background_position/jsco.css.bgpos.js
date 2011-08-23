@@ -133,11 +133,17 @@
 			};
 
 			$.fx.step[var_name_x] = function (fx) {
-			    $.cssHooks[var_name_x].set(fx.elem, $.support[var_name].val2num(fx.now) + $.support[var_name].val2num(fx.unit));
+			    $.cssHooks[var_name_x].set(fx.elem,
+					$.support[var_name].val2num(fx.now)
+					+ $.support[var_name].val2num(fx.unit)
+				);
 			};
 
 			$.fx.step[var_name_y] = function (fx) {
-			    $.cssHooks[var_name_y].set(fx.elem, $.support[var_name].val2num(fx.now) + $.support[var_name].val2num(fx.unit));
+			    $.cssHooks[var_name_y].set(fx.elem,
+					$.support[var_name].val2num(fx.now)
+					+ $.support[var_name].val2num(fx.unit)
+				);
 			};
 
 		}
