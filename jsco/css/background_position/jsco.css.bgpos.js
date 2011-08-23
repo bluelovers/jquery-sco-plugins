@@ -31,13 +31,6 @@
   	 * @github bluelovers
   	 * @see https://github.com/bluelovers/jquery-sco-plugins
 	 **/
-	function get_background_position($element) {
-	    var position = $element.css('background-position');
-
-	    if (!position) position = 'auto';
-
-	    return position;
-	}
 
 	function get_coordinates(position) {
 	    var coordinates = position.split(' ');
@@ -153,6 +146,14 @@
 			    $.cssHooks[var_name_y].set(fx.elem, fx.now + fx.unit);
 			};
 
+		}
+
+		function get_background_position($element) {
+		    var position = $element.css('background-position');
+
+		    if (!position) position = 'auto';
+
+		    return position;
 		}
 
 		var val2num = function (value) {
