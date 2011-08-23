@@ -107,7 +107,7 @@
 		function get_background_position($element) {
 		    var position = $element.css('background-position');
 
-			var coordinates = position.split(' ');
+			var coordinates = position.split(/\s/);
 		    if (coordinates.length != 2) {
 		    	coordinates[0] = 'auto';
 		    	coordinates[1] = 'auto';
