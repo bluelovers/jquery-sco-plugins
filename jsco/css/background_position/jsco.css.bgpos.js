@@ -62,6 +62,7 @@
 
 	if (!$.support.backgroundPositionXY || !$.support.backgroundPosition) {
 		var rnum = /^[+\-]?\d+$/;
+		var allow_val = /^[+\-]?\d+(px|\%|em|pt)/;
 
 		if (!$.support.backgroundPosition && $.support.backgroundPositionXY) {
 			$.cssHooks[var_name] = {
@@ -167,6 +168,8 @@
 				value = '100%';
 			} else if (rnum.test(value)) {
 				value += 'px';
+			} else if (!allow_val.test(value)) {
+				value = '';
 			}
 
 			return value;
