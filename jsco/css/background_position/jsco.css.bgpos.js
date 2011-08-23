@@ -63,6 +63,32 @@
 	if (!$.support.backgroundPositionXY || !$.support.backgroundPosition) {
 		var rnum = /^[+\-]?\d+$/;
 
+		if (!$.support.backgroundPosition && $.support.backgroundPositionXY) {
+			$.cssHooks[var_name] = {
+			    get: function (element, computed, extra) {
+			    	var $element = $(element);
+
+			        return get_position([
+						$element.css(var_name_x)
+						, $element.css(var_name_y)
+					]);
+			    },
+
+			    set: function (element, value) {
+			    	var $element = $(element);
+
+			    	var ret = get_background_position(value + '', 1);
+			        ret.x = val2num(ret.x);
+			        ret.y = val2num(ret.y);
+
+			        $element
+						.css(var_name_x, ret.x)
+						.css(var_name_y, ret.y)
+					;
+			    }
+			};
+		}
+
 		if (!$.support.backgroundPositionXY) {
 			$.cssHooks[var_name_x] = {
 			    get: function (element, computed, extra) {
