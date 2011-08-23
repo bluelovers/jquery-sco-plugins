@@ -92,8 +92,8 @@
 			    	var $element = $(element);
 
 			    	var ret = get_background_position(value + '', 1);
-			        ret.x = val2num(ret.x);
-			        ret.y = val2num(ret.y);
+			        ret.x = $.support[var_name].val2num(ret.x);
+			        ret.y = $.support[var_name].val2num(ret.y);
 
 			        $element
 						.css(var_name_x, ret.x)
@@ -111,7 +111,7 @@
 			    	var $element = $(element);
 
 			    	var ret = get_background_position($element);
-			        x = val2num(x);
+			        x = $.support[var_name].val2num(x);
 
 			        $element.css('background-position', get_position([x, ret.y]));
 			    }
@@ -126,18 +126,18 @@
 			        var $element = $(element);
 
 			        var ret = get_background_position($element);
-			        y = val2num(y);
+			        y = $.support[var_name].val2num(y);
 
 			        $element.css('background-position', get_position([ret.x, y]));
 			    }
 			};
 
 			$.fx.step[var_name_x] = function (fx) {
-			    $.cssHooks[var_name_x].set(fx.elem, val2num(fx.now) + val2num(fx.unit));
+			    $.cssHooks[var_name_x].set(fx.elem, $.support[var_name].val2num(fx.now) + $.support[var_name].val2num(fx.unit));
 			};
 
 			$.fx.step[var_name_y] = function (fx) {
-			    $.cssHooks[var_name_y].set(fx.elem, val2num(fx.now) + val2num(fx.unit));
+			    $.cssHooks[var_name_y].set(fx.elem, $.support[var_name].val2num(fx.now) + $.support[var_name].val2num(fx.unit));
 			};
 
 		}
@@ -172,21 +172,23 @@
 		    return coordinates.join(' ');
 		}
 
-		var val2num = function (value) {
-			value = value.toLowerCase();
+		$.extend($.support[var_name], {
+			val2num : function (value) {
+				value = value.toLowerCase();
 
-			if (value == 'top' || value == 'left') {
-				value = '0px';
-			} else if (value == 'right' || value == 'bottom') {
-				value = '100%';
-			} else if (rnum.test(value)) {
-				value += 'px';
-			} else if (!$.support[var_name].regex.allow_val.test(value)) {
-				value = $.support[var_name].values.error;
-			}
+				if (value == 'top' || value == 'left') {
+					value = '0px';
+				} else if (value == 'right' || value == 'bottom') {
+					value = '100%';
+				} else if (rnum.test(value)) {
+					value += 'px';
+				} else if (!$.support[var_name].regex.allow_val.test(value)) {
+					value = $.support[var_name].values.error;
+				}
 
-			return value;
-		};
+				return value;
+			},
+		});
 
 	}
 })(jQuery);
