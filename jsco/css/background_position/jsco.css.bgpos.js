@@ -157,7 +157,14 @@
 		    	coordinates[1] = 'auto';
 		    }
 
-		    return position;
+		    var ret = {
+		    	value : position,
+
+		    	x : coordinates[0],
+		    	y : coordinates[1],
+		    };
+
+		    return ret;
 		}
 
 		var val2num = function (value) {
