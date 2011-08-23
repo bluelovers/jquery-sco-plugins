@@ -62,11 +62,11 @@
 		_u;
 	*/
 
-	if (!$.support.backgroundPositionXY || !$.support.backgroundPosition) {
+	if ($.support[var_name].pos || $.support[var_name].xy) {
 		var rnum = /^[+\-]?\d+$/;
 		var allow_val = /^[+\-]?\d+(px|\%|em|pt)/;
 
-		if (!$.support.backgroundPosition && $.support.backgroundPositionXY) {
+		if (!$.support[var_name].pos && $.support[var_name].xy) {
 			$.cssHooks[var_name] = {
 			    get: function (element, computed, extra) {
 			    	var $element = $(element);
@@ -90,7 +90,7 @@
 					;
 			    }
 			};
-		} else if ($.support.backgroundPosition && !$.support.backgroundPositionXY) {
+		} else if ($.support[var_name].pos && !$.support[var_name].xy) {
 			$.cssHooks[var_name_x] = {
 			    get: function (element, computed, extra) {
 			        return get_background_position($(element)).x;
