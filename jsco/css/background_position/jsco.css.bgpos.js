@@ -119,11 +119,11 @@
 			};
 
 			$.fx.step[var_name_x] = function (fx) {
-			    $.cssHooks[var_name_x].set(fx.elem, fx.now + fx.unit);
+			    $.cssHooks[var_name_x].set(fx.elem, val2num(fx.now) + val2num(fx.unit));
 			};
 
 			$.fx.step[var_name_y] = function (fx) {
-			    $.cssHooks[var_name_y].set(fx.elem, fx.now + fx.unit);
+			    $.cssHooks[var_name_y].set(fx.elem, val2num(fx.now) + val2num(fx.unit));
 			};
 
 		}
