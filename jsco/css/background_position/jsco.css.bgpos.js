@@ -138,7 +138,10 @@
 		    }
 
 			var coordinates = position.split(/\s/);
-		    if (coordinates.length != 2) {
+			if (position === '' || position === 'auto') {
+				coordinates[0] = position;
+				coordinates[1] = position;
+		    } else if (coordinates.length != 2) {
 		    	coordinates[0] = 'auto';
 		    	coordinates[1] = 'auto';
 		    }
