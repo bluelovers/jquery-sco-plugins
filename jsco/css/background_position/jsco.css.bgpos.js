@@ -89,7 +89,7 @@
 			};
 		}
 
-		if (!$.support.backgroundPositionXY) {
+		if ($.support.backgroundPosition && !$.support.backgroundPositionXY) {
 			$.cssHooks[var_name_x] = {
 			    get: function (element, computed, extra) {
 			        return get_background_position($(element)).x;
