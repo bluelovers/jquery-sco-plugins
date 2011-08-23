@@ -96,15 +96,12 @@
 			    },
 
 			    set: function (element, x) {
-			        var $element = $(element);
+			    	var $element = $(element);
 
-			        var y = get_coordinate(2, $element);
+			    	var ret = get_background_position($element);
+			        x = val2num(x);
 
-			        if (!y) return;
-
-			        if (rnum.test(x)) x += 'px';
-
-			        $element.css('background-position', get_position([x, y]));
+			        $element.css('background-position', get_position([x, ret.y]));
 			    }
 			};
 
