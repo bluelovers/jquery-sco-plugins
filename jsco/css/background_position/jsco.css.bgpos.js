@@ -23,7 +23,13 @@
 	 * @github kuchumovn
 	 * @see http://forum.jquery.com/topic/jquery-css-background-position-firefox-opera-bug
 	 *
+	 * @author Tom Ellis
+	 * @github brandonaaron
+  	 * @see https://github.com/brandonaaron/jquery-cssHooks/blob/master/bgpos.js
+	 *
 	 * @author bluelovers
+  	 * @github bluelovers
+  	 * @see https://github.com/bluelovers/jquery-sco-plugins
 	 **/
 	function get_background_position($element) {
 	    var position = $element.css('background-position');
