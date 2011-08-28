@@ -78,25 +78,23 @@
 					_jQueryStyle(elem, name, value, extra);
 				} else {
 
-				var important;
-				if (rimportant.test(value)) {
-					important = 'important';
-					value = value.replace(rimportant, '');
-				}
+					var important;
+					if (rimportant.test(value)) {
+						important = 'important';
+						value = value.replace(rimportant, '');
+					}
 
-				//console.log('important = ' + important);
+					//console.log('important = ' + important);
 
-				_jQueryStyle(elem, name, value, extra);
+					_jQueryStyle(elem, name, value, extra);
 
-				if (
-					important
-				) {
-					ret = $.style(elem, name, undefined, extra);
-					//console.log(ret);
+					if (important) {
+						ret = $.style(elem, name, undefined, extra);
+						//console.log(ret);
 
-					//console.log([elem, name, value, important, ret]);
-					$.style.setProperty(elem, name, ret, important);
-				}
+						//console.log([elem, name, value, important, ret]);
+						$.style.setProperty(elem, name, ret, important);
+					}
 				}
 			} else {
 				ret = _jQueryStyle(elem, name, value, extra);
