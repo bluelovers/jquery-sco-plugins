@@ -105,5 +105,5 @@
 	})($.style);
 
 	$.style.setProperty = setProperty;
-	console.log('jQuery.style.setProperty = ' + $.style.setProperty);
+	//console.log('jQuery.style.setProperty = ' + $.style.setProperty);
 })(jQuery);
