@@ -39,7 +39,17 @@
 	var setProperty;
 	if (typeof _elem.style.setProperty == 'function')) {
 		setProperty = function(elem, propertyName, propertyValue, priority) {
+			// button.style.setProperty ("background-color", "green", null);
+			propertyName = $.rcamelCase(propertyName);
+
 			return elem.style.setProperty(propertyName, propertyValue, priority);
+		};
+	} else if (typeof _elem.style.setAttribute == 'function')) {
+		setProperty = function(elem, propertyName, propertyValue, priority) {
+			// button.style.setAttribute ("backgroundColor", "green");
+			propertyName = $.camelCase(propertyName);
+
+			return elem.style.setAttribute(propertyName, propertyValue, priority);
 		};
 	}
 
