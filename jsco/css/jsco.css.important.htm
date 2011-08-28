@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!--DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"-->
+<html _xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
@@ -8,11 +8,24 @@
 	<title>jsco.css.important</title>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 	<script type="text/javascript" src="jsco.css.important.js"></script>
+
+	<script type="text/javascript">
+        function ModifyBGColor (button) {
+            if (button.style.setProperty) {
+                button.style.setProperty ("background-color", "green");
+                console.log('style.setProperty');
+            }
+            else {
+                button.style.setAttribute ("backgroundColor", "green");
+                console.log('style.setAttribute');
+            }
+        }
+    </script>
 </head>
 
 <body>
 
-
+    <button onclick="ModifyBGColor (this);" style="background-color:red;">Modify my background color!</button>
 
 </body>
 </html>
