@@ -48,6 +48,8 @@
 			// button.style.setProperty ("background-color", "green", null);
 			propertyName = $.rcamelCase(propertyName);
 
+			console.log(propertyName);
+
 			return elem.style.setProperty(propertyName, propertyValue, priority);
 		};
 
@@ -58,6 +60,7 @@
 			propertyName = $.camelCase(propertyName);
 
 			var caseSens;
+			console.log(propertyName);
 
 			return elem.style.setAttribute(propertyName, propertyValue, caseSens);
 		};
@@ -70,18 +73,29 @@
 		$.style = function(elem, name, value, extra) {
 			var ret;
 
-			var important;
-			if (rimportant.test(value)) {
-				important = 'important';
+			if ( value !== undefined ) {
+				var important;
+				if (rimportant.test(value)) {
+					important = 'important';
+					value = value.replace(rimportant, '');
+				}
+
+				console.log('important = ' + important);
+
+				_jQueryStyle(elem, name, value, extra);
+				ret = _jQueryStyle(elem, name, undefined, extra);
+
+				console.log(ret);
+
+				if (important) {
+					console.log([elem, name, value, important]);
+					$.style.setProperty(elem, name, value, important);
+				}
+			} else {
+				ret = _jQueryStyle(elem, name, value, extra);
+
+				return ret;
 			}
-
-			ret = _jQueryStyle(elem, name, value, extra);
-
-			if (important) {
-				$.style.setProperty(elem, name, value, important);
-			}
-
-			return ret;
 		};
 	})($.style);
 
