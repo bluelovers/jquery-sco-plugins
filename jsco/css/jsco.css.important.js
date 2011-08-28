@@ -54,7 +54,7 @@
 		};
 
 		//console.log('style.setProperty');
-	} else if (typeof _elem.style.setAttribute == 'function') {
+	} else if (0 && typeof _elem.style.setAttribute == 'function') {
 		setProperty = function(elem, propertyName, propertyValue, priority) {
 			// button.style.setAttribute ("backgroundColor", "green");
 			propertyName = $.camelCase(propertyName);
