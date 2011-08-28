@@ -74,6 +74,10 @@
 			var ret;
 
 			if ( value !== undefined ) {
+				if (typeof $.style.setProperty != 'function') {
+					_jQueryStyle(elem, name, value, extra);
+				} else {
+
 				var important;
 				if (rimportant.test(value)) {
 					important = 'important';
@@ -86,13 +90,13 @@
 
 				if (
 					important
-					&& typeof $.style.setProperty == 'function'
 				) {
 					ret = $.style(elem, name, undefined, extra);
 					//console.log(ret);
 
 					//console.log([elem, name, value, important, ret]);
 					$.style.setProperty(elem, name, ret, important);
+				}
 				}
 			} else {
 				ret = _jQueryStyle(elem, name, value, extra);
