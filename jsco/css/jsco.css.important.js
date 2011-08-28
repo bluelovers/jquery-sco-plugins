@@ -69,4 +69,6 @@
 			return _jQueryStyle(elem, name, value, extra);
 		};
 	})($.style);
+
+	$.style.setProperty = setProperty;
 })(jQuery);
