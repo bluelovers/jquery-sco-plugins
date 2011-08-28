@@ -11,7 +11,7 @@
 			return ( "-" + letter ).toLowerCase();
 		},
 
-		rimportant = /\!important\s*;?\s*$/i,
+		rimportant = /\s*\!important\s*;?\s*$/i,
 
 		undefined
 	;
