@@ -12,11 +12,17 @@
 	<script type="text/javascript">
         function ModifyBGColor (button) {
             if (button.style.setProperty) {
-                button.style.setProperty ("background-color", "green");
+            	var cssname = $.rcamelCase("backgroundColor");
+            	var color = button.style.getPropertyValue(cssname);
+
+                button.style.setProperty (cssname, color == "green" ? 'red' : "green");
                 console.log('style.setProperty');
             }
             else {
-                button.style.setAttribute ("backgroundColor", "green");
+				var cssname = $.camelCase("backgroundColor");
+            	var color = button.style.getAttribute (cssname);
+
+                button.style.setAttribute (cssname, color == "green" ? 'red' : "green");
                 console.log('style.setAttribute');
             }
         }

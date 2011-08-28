@@ -66,7 +66,11 @@
 	// hack jQuery.style
 	(function(_jQueryStyle){
 		$.style = function(elem, name, value, extra) {
-			return _jQueryStyle(elem, name, value, extra);
+			var ret;
+
+			ret = _jQueryStyle(elem, name, value, extra);
+
+			return ret;
 		};
 	})($.style);
 
