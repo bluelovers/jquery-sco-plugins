@@ -29,4 +29,11 @@
 			return string.replace( rrmsPrefix, "-ms" ).replace( rrdashAlpha, rfcamelCase );
 		},
 	});
+
+	// hack jQuery.style
+	(function(_jQueryStyle){
+		$.style = function(elem, name, value, extra) {
+			return _jQueryStyle(elem, name, value, extra);
+		};
+	})($.style);
 })(jQuery);
