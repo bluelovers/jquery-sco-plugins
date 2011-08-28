@@ -11,6 +11,8 @@
 			return ( "-" + letter ).toLowerCase();
 		},
 
+		rimportant = /\!important\s*;?\s*$/i,
+
 		undefined
 	;
 
@@ -67,6 +69,11 @@
 	(function(_jQueryStyle){
 		$.style = function(elem, name, value, extra) {
 			var ret;
+
+			var important;
+			if (rimportant.test(value)) {
+				important = 'important';
+			}
 
 			ret = _jQueryStyle(elem, name, value, extra);
 
