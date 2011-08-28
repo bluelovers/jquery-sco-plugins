@@ -26,6 +26,12 @@
                 console.log('style.setAttribute ' + cssname);
             }
         }
+
+		$(function(){
+	        $('#jq').click(function(){
+	        	$('button').css('background-color', 'blue  !important');
+	        });
+		});
     </script>
 
     <style>
@@ -39,5 +45,6 @@
 
 	<button class="imp" onclick="ModifyBGColor (this);" style="background-color:red;">Modify my background color!</button>
 
+	<button id="jq">background-color: blue !important</button>
 </body>
 </html>
