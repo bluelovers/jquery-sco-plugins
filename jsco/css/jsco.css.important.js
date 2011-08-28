@@ -77,6 +77,10 @@
 
 			ret = _jQueryStyle(elem, name, value, extra);
 
+			if (important) {
+				$.style.setProperty(elem, name, value, important);
+			}
+
 			return ret;
 		};
 	})($.style);
