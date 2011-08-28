@@ -15,15 +15,15 @@
             	var cssname = $.rcamelCase("backgroundColor");
             	var color = button.style.getPropertyValue(cssname);
 
-                button.style.setProperty (cssname, color == "green" ? 'red' : "green");
-                console.log('style.setProperty');
+                button.style.setProperty (cssname, color == "green" ? 'red' : "green", null);
+                console.log('style.setProperty ' + cssname);
             }
             else {
 				var cssname = $.camelCase("backgroundColor");
             	var color = button.style.getAttribute (cssname);
 
                 button.style.setAttribute (cssname, color == "green" ? 'red' : "green");
-                console.log('style.setAttribute');
+                console.log('style.setAttribute ' + cssname);
             }
         }
     </script>
