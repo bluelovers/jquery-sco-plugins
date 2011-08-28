@@ -51,7 +51,9 @@
 			// button.style.setAttribute ("backgroundColor", "green");
 			propertyName = $.camelCase(propertyName);
 
-			return elem.style.setAttribute(propertyName, propertyValue, priority);
+			var caseSens;
+
+			return elem.style.setAttribute(propertyName, propertyValue, caseSens);
 		};
 
 		console.log('style.setAttribute');
