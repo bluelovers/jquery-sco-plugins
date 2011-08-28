@@ -12,6 +12,7 @@
 		},
 
 		rimportant = /\s*\!important\s*;?\s*$/i,
+		simportant = 'important',
 
 		undefined
 	;
@@ -66,6 +67,16 @@
 		};
 
 		//console.log('style.setAttribute');
+	} else {
+		setProperty = function(elem, propertyName, propertyValue, priority) {
+			propertyName = $.rcamelCase(propertyName);
+
+			if (priority == simportant) {
+				propertyValue = propertyValue.replace(/[;\s]+$/g, '') + ' !' + priority;
+			}
+
+			elem.style.cssText += ';' + propertyName + ':' + propertyValue + ';';
+		}
 	}
 
 	try {
