@@ -83,7 +83,7 @@
 				//console.log('important = ' + important);
 
 				_jQueryStyle(elem, name, value, extra);
-				ret = _jQueryStyle(elem, name, undefined, extra);
+				ret = $.style(elem, name, undefined, extra);
 
 				//console.log(ret);
 
