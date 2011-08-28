@@ -4,7 +4,7 @@
  */
 (function($){
 	var
-		rrdashAlpha = /([A-Z]|[0-9])/ig,
+		rrdashAlpha = /([A-Z]|[0-9])/g,
 		rrmsPrefix = /^ms-/,
 
 		rfcamelCase = function( all, letter ) {
