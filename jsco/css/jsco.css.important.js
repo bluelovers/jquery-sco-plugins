@@ -88,8 +88,8 @@
 				console.log(ret);
 
 				if (important) {
-					console.log([elem, name, value, important]);
-					$.style.setProperty(elem, name, value, important);
+					console.log([elem, name, value, important, ret]);
+					$.style.setProperty(elem, name, ret, important);
 				}
 			} else {
 				ret = _jQueryStyle(elem, name, value, extra);
