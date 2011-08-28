@@ -14,7 +14,7 @@
 		undefined
 	;
 
-	jQuery.extend({
+	$.extend({
 		rcssProps: {
 			// normalize float css property
 			'cssFloat' : 'float',
@@ -22,8 +22,8 @@
 		},
 		rcamelCase: function( string, iscss ) {
 
-			if (iscss && jQuery.rcssProps[ string ]) {
-				return jQuery.rcssProps[ string ];
+			if (iscss && $.rcssProps[ string ]) {
+				return $.rcssProps[ string ];
 			}
 
 			return string.replace( rrmsPrefix, "-ms" ).replace( rrdashAlpha, rfcamelCase );
