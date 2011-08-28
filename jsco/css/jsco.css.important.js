@@ -5,7 +5,7 @@
 (function($){
 	var
 		rrdashAlpha = /([A-Z]|[0-9])/g,
-		rrmsPrefix = /^ms-/,
+		rrmsPrefix = /^ms-/i,
 
 		rfcamelCase = function( all, letter ) {
 			return ( "-" + letter ).toLowerCase();
