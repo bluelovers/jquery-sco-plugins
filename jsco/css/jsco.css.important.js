@@ -30,6 +30,19 @@
 		},
 	});
 
+	var _elem = $('<div style="color: red;"/>')[0];
+	/**
+	 * Adds a property with the specified name and value to the current style object.
+	 *
+	 * @see http://help.dottoro.com/ljdpsdnb.php
+	 */
+	var setProperty;
+	if (typeof _elem.style.setProperty == 'function')) {
+		setProperty = function(elem, propertyName, propertyValue, priority) {
+			return elem.style.setProperty(propertyName, propertyValue, priority);
+		};
+	}
+
 	// hack jQuery.style
 	(function(_jQueryStyle){
 		$.style = function(elem, name, value, extra) {
