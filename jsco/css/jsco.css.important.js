@@ -37,7 +37,11 @@
 	 * @see http://help.dottoro.com/ljdpsdnb.php
 	 */
 	var setProperty;
-	if (typeof _elem.style.setProperty == 'function') {
+	if (
+		//BUG: unknow bug in ie.9, support setProperty but can't work
+		!$.browser.msie
+		&& typeof _elem.style.setProperty == 'function'
+	) {
 		setProperty = function(elem, propertyName, propertyValue, priority) {
 			// button.style.setProperty ("background-color", "green", null);
 			propertyName = $.rcamelCase(propertyName);
