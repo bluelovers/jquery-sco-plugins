@@ -15,7 +15,17 @@
 	;
 
 	jQuery.extend({
-		rcamelCase: function( string ) {
+		rcssProps: {
+			// normalize float css property
+			'cssFloat' : 'float',
+			'styleFloat' : 'float',
+		},
+		rcamelCase: function( string, iscss ) {
+
+			if (iscss && jQuery.rcssProps[ string ]) {
+				return jQuery.rcssProps[ string ];
+			}
+
 			return string.replace( rrmsPrefix, "-ms" ).replace( rrdashAlpha, rfcamelCase );
 		},
 	});
