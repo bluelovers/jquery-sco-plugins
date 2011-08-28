@@ -10,38 +10,37 @@
 	<script type="text/javascript" src="jsco.css.important.js"></script>
 
 	<script type="text/javascript">
-        function ModifyBGColor (button) {
-            if (button.style.setProperty) {
-            	var cssname = $.rcamelCase("backgroundColor");
-            	var color = button.style.getPropertyValue(cssname);
+		function ModifyBGColor (button) {
+			if (button.style.setProperty) {
+				var cssname = $.rcamelCase("backgroundColor");
+				var color = button.style.getPropertyValue(cssname);
 
-                button.style.setProperty (cssname, color == "green" ? 'red' : "green", null);
-                console.log('style.setProperty ' + cssname);
-            }
-            else {
+				button.style.setProperty (cssname, color == "green" ? 'red' : "green", null);
+				console.log('style.setProperty ' + cssname);
+			} else {
 				var cssname = $.camelCase("backgroundColor");
-            	var color = button.style.getAttribute (cssname);
+				var color = button.style.getAttribute (cssname);
 
-                button.style.setAttribute (cssname, color == "green" ? 'red' : "green");
-                console.log('style.setAttribute ' + cssname);
-            }
-        }
+				button.style.setAttribute (cssname, color == "green" ? 'red' : "green");
+				console.log('style.setAttribute ' + cssname);
+			}
+		}
 
 		$(function(){
-	        $('#jq').click(function(){
-	        	$('button').css('background-color', 'blue  !important');
-	        });
+			$('#jq').click(function(){
+				$('button').css('background-color', 'blue  !important');
+			});
 		});
-    </script>
+	</script>
 
-    <style>
+	<style>
 		.imp { background-color: red !important; }
 	</style>
 </head>
 
 <body>
 
-    <button onclick="ModifyBGColor (this);" style="background-color:red;">Modify my background color!</button>
+	<button onclick="ModifyBGColor (this);" style="background-color:red;">Modify my background color!</button>
 
 	<button class="imp" onclick="ModifyBGColor (this);" style="background-color:red;">Modify my background color!</button>
 
