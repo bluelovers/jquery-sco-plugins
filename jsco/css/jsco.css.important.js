@@ -68,6 +68,11 @@
 		//console.log('style.setAttribute');
 	}
 
+	try {
+		_elem = null;
+		delete _elem;
+	} catch (e) {}
+
 	// hack jQuery.style
 	(function(_jQueryStyle){
 		$.style = function(elem, name, value, extra) {
