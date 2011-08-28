@@ -83,14 +83,14 @@
 				//console.log('important = ' + important);
 
 				_jQueryStyle(elem, name, value, extra);
-				ret = $.style(elem, name, undefined, extra);
-
-				//console.log(ret);
 
 				if (
 					important
 					&& typeof $.style.setProperty == 'function'
 				) {
+					ret = $.style(elem, name, undefined, extra);
+					//console.log(ret);
+
 					//console.log([elem, name, value, important, ret]);
 					$.style.setProperty(elem, name, ret, important);
 				}
