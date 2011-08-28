@@ -87,7 +87,7 @@
 
 				//console.log(ret);
 
-				if (important) {
+				if (important && typeof $.style.setProperty == 'function') {
 					//console.log([elem, name, value, important, ret]);
 					$.style.setProperty(elem, name, ret, important);
 				}
