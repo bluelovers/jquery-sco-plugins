@@ -1,4 +1,8 @@
 /**
+ * jQuery CSS Value Support !important
+ *
+ * @example $('button').css('background-color', 'blue  !important');
+ *
  * @author bluelovers
  * @copyright 2011
  */
