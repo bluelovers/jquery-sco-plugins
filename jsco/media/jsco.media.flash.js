@@ -14,7 +14,7 @@
 		},
 	});
 
-	$.scoEmbed = $.extend($.scoEmbed, {
+	$.extend($.scoEmbed, {
 		log : function(a){
 			console.log(a);
 		},
