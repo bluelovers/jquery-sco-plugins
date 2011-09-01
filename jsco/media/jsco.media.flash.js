@@ -101,6 +101,8 @@
 						break;
 				};
 			}
+
+			return attr;
 		}
 
 	});
