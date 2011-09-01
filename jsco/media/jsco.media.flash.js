@@ -214,7 +214,7 @@
 				attr.params.flashvars = flashvars;
 				attr.embed.flashvars = flashvars;
 
-				attr.embed.src += ((/?/.test(attr.embed.src)) ? '&' : '?') + flashvars
+				attr.embed.src += ((/?/.test(attr.embed.src)) ? '&' : '?') + flashvars;
 
 			} else {
 				attr.params.flashvars = '';
