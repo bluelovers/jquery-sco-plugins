@@ -175,11 +175,19 @@
 
 			return true;
 		},
+		toStringValue : function (value) {
+			if ($.isValue(value)) {
+				value = value.join(',');
+			}
+			return value;
+		},
 		toParamString : function (attr) {
 			var s = '';
 			for (var key in attr) {
 				var _v = attr[key];
 				if($.scoEmbed.isValidValue(_v)) {
+					_v = $.scoEmbed.toStringValue(_v);
+
 					s += '<param name="' + key + '" value="'+_v+'"/>';
 				}
 			}
@@ -197,6 +205,8 @@
 			for (var key in attr) {
 				var _v = attr[key];
 				if ($.scoEmbed.isValidValue(_v)) {
+					_v = $.scoEmbed.toStringValue(_v);
+
 					s += key+'="'+_v+'" ';
 				}
 			}
@@ -214,10 +224,12 @@
 			for (var key in attr) {
 				var _v = attr[key];
 				if($.scoEmbed.isValidValue(_v)) {
+					_v = $.scoEmbed.toStringValue(_v);
+
 					s += key+'='+encodeURIComponent(_v)+'&';
 				}
 			}
-			return s.replace(/&$/, '');
+			return s.replace(/&+$/, '');
 		},
 		toHtml : function (attr) {
 			var html = {
