@@ -1,3 +1,6 @@
+/**
+ * @link http://jquery.lukelutman.com/plugins/flash/jquery.flash.js
+ */
 (function($){
 
 	$.extend({
@@ -103,7 +106,38 @@
 			}
 
 			return attr;
-		}
+		},
+		setMimeType : function (obj, classid, mimeType) {
+
+		},
+		/**
+		 *
+		 * @desc Convert a hash of html options to a string of attributes, using Function.apply().
+		 * @example toAttributeString.apply(htmlOptions)
+		 * @result foo="bar" foo="bar"
+		 *
+		 */
+		toAttributeString : function (attr) {
+			var s = '';
+			for(var key in attr)
+				if(typeof this[key] != 'function')
+					s += key+'="'+attr[key]+'" ';
+			return s;
+		},
+		/**
+		 *
+		 * @desc Convert a hash of flashvars to a url-encoded string, using Function.apply().
+		 * @example toFlashvarsString.apply(flashvarsObject)
+		 * @result foo=bar&foo=bar
+		 *
+		 */
+		toFlashvarsString : function (attr) {
+			var s = '';
+			for(var key in attr)
+				if(typeof this[key] != 'function')
+					s += key+'='+encodeURIComponent(attr[key])+'&';
+			return s.replace(/&$/, '');
+		},
 
 	});
 
