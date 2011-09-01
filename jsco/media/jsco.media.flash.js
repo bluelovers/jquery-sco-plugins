@@ -10,7 +10,7 @@
 			setting = $.scoEmbed.getArgs(setting);
 			var html = $.scoEmbed.toHtml(setting);
 
-			return _this.html(html.object);
+			return html.object;
 		},
 	});
 
@@ -29,16 +29,20 @@
 				allowScriptAccess : 'never',
 				quality : 'high',
 				allowfullscreen : true,
+
+				width : 500,
+				height : 375,
 			},
 			attr : {
 				params : {},
 				object : {},
 				embed : {},
+				options : {},
 			},
 			conf : {
 				format : '',
 			},
-		),
+		},
 		getArgs : function (options, old_attr) {
 			var agv = $.extend(true, {}, $.scoEmbed.defaults.setting, options);
 			var attr = $.extend(true, {}, $.scoEmbed.defaults.attr, old_attr);
@@ -118,6 +122,8 @@
 						attr.embed[_k] = attr.params[_k] = _v;
 						break;
 				};
+
+				attr.options[_k] = _v;
 			}
 
 			return attr;
@@ -199,6 +205,10 @@
 				+ '>'
 				+ '</embed>'
 			;
+			html.embed = $(html.embed)
+				.width(attr.options.width)
+				.height(attr.options.height)
+			;
 
 			html.object =
 				'<object '
@@ -207,6 +217,10 @@
 				+ $.scoEmbed.toParamString(attr.params)
 				+ html.embed
 				+ '</object>'
+			;
+			html.object = $(html.object)
+				.width(attr.options.width)
+				.height(attr.options.height)
 			;
 
 			return html;
