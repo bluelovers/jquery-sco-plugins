@@ -34,6 +34,8 @@
 				quality : 'high',
 				allowfullscreen : true,
 
+				menu : false,
+
 				width : 500,
 				height : 375,
 			},
