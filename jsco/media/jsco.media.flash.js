@@ -1,5 +1,8 @@
 /**
  * @link http://jquery.lukelutman.com/plugins/flash/jquery.flash.js
+ * @author Luke Lutman luke.lutman@gmail.com
+ *
+ * @author bluelovers
  */
 (function($, undefined){
 
