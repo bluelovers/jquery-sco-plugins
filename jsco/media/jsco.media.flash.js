@@ -11,7 +11,19 @@
 			setting = $.scoEmbed.getArgs(setting);
 			var html = $.scoEmbed.toHtml(setting);
 
-			return html.object;
+			var ret;
+
+			if ($.browser.mozilla) {
+				html.object.removeAttr('id');
+				ret = html.embed;
+			} else if ($.browser.msie) {
+				html.embed.removeAttr('id');
+				ret = html.object;
+			} else {
+				ret = html.object;
+			}
+
+			return ret;
 		},
 	});
 
@@ -237,6 +249,18 @@
 				object : '',
 			};
 
+			/*
+			if (attr.options.id) {
+				try {
+					attr.params.id = '';
+					attr.embed.id = '';
+
+					delete attr.params.id;
+					delete attr.embed.id;
+				} catch (e) {}
+			}
+			*/
+
 			var flashvars;
 			if (typeof attr.options.flashvars == 'object') {
 				flashvars = attr.options.flashvars;
@@ -272,8 +296,6 @@
 				.height(attr.options.height)
 			;
 
-			$.scoEmbed.log(html.embed);
-
 			html.object =
 				'<object '
 				+ $.scoEmbed.toAttributeString(attr.object)
@@ -287,7 +309,7 @@
 				.append(html.embed)
 			;
 
-			$.scoEmbed.log(html.object);
+			$.scoEmbed.log(html);
 
 			return html;
 		},
