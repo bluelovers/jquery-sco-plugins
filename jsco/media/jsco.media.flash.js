@@ -219,8 +219,8 @@
 
 			} else {
 				try {
-					attr.params.flashvars = null;
-					attr.embed.flashvars = null;
+					attr.params.flashvars = '';
+					attr.embed.flashvars = '';
 
 					delete attr.params.flashvars;
 					delete attr.embed.flashvars;
