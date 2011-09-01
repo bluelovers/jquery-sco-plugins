@@ -39,8 +39,6 @@
 				height : 24,
 
 				id : 'one',
-			}, {
-				debug : true,
 			})
 				.appendTo($('body'))
 			;
@@ -61,11 +59,15 @@
 			$.scoEmbed({
 				src : 'player.swf',
 				flashvars : {
-					soundFile : 'casshern sins - a path (nami miyahara).mp3',
+					soundFile : [
+						'07 - SKY.mp3',
+					],
 
 				},
 				width : 290,
 				height : 24,
+			}, {
+				debug : true,
 			})
 				.appendTo($('body'))
 			;
