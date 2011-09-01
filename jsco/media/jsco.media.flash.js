@@ -102,8 +102,6 @@
 						attr.embed[_k] = _v;
 						break;
 				};
-
-				agv[_k] = _v;
 			}
 		}
 
