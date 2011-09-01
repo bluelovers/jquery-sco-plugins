@@ -19,6 +19,11 @@
 				pluginspage : 'http://www.macromedia.com/go/getflashplayer',
 
 				autostart : 0,
+
+				allowNetworking : 'internal',
+				allowScriptAccess : 'never',
+				quality : 'high',
+				allowfullscreen : true,
 			},
 			attr : {
 				params : {},
