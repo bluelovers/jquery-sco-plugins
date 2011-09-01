@@ -32,7 +32,6 @@
 
 				switch (_k) {
 					case "classid":
-					case "codebase":
 						attr.object[_k] = _v;
 						break;
 					case "pluginspage":
@@ -81,7 +80,7 @@
 					case "onbeforedeactivate":
 					case "ondeactivate":
 					case "type":
-					case "id":
+					case "codebase":
 						attr.object[_k] = _v;
 						break;
 					case "width":
@@ -93,6 +92,7 @@
 					case "title":
 					case "accesskey":
 					case "name":
+					case "id":
 					case "tabindex":
 						attr.embed[_k] = attr.object[_k] = _v;
 						break;
