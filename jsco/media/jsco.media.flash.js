@@ -146,13 +146,22 @@
 					s += key+'='+encodeURIComponent(attr[key])+'&';
 			return s.replace(/&$/, '');
 		},
-		toString : function () {
+		toHtml : function (attr) {
 			var html = {
 				embed : '',
 				object : '',
 			};
 
+			html.object =
+				'<object '
+				+ $.scoEmbed.toAttributeString(attr.object)
+				+ '>'
+				+ $.scoEmbed.toParamString(attr.params)
+				+ html.embed
+				+ '</object>'
+			;
 
+			return html;
 		},
 
 	});
