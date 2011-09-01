@@ -23,6 +23,7 @@
 				object : {},
 				embed : {},
 			},
+			format : '',
 		),
 		getArgs : function (options) {
 			var agv = $.extend(true, {}, $.scoEmbed.defaults.setting, options);
@@ -110,6 +111,13 @@
 		setMimeType : function (obj, classid, mimeType) {
 
 		},
+		toParamString : function (attr) {
+			var s = '';
+			for(var key in attr)
+				if(typeof attr[key] != 'function')
+					s += '<param name="' + key + '" value="'+attr[key]+'"/>';
+			return s;
+		},
 		/**
 		 *
 		 * @desc Convert a hash of html options to a string of attributes, using Function.apply().
@@ -120,7 +128,7 @@
 		toAttributeString : function (attr) {
 			var s = '';
 			for(var key in attr)
-				if(typeof this[key] != 'function')
+				if(typeof attr[key] != 'function')
 					s += key+'="'+attr[key]+'" ';
 			return s;
 		},
@@ -134,9 +142,17 @@
 		toFlashvarsString : function (attr) {
 			var s = '';
 			for(var key in attr)
-				if(typeof this[key] != 'function')
+				if(typeof attr[key] != 'function')
 					s += key+'='+encodeURIComponent(attr[key])+'&';
 			return s.replace(/&$/, '');
+		},
+		toString : function () {
+			var html = {
+				embed : '',
+				object : '',
+			};
+
+
 		},
 
 	});
