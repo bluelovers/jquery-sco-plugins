@@ -8,24 +8,22 @@
 
 	$.scoEmbed.extend({
 		defaults : {
-			params : {
+			setting : {
 				classid : 'clsid:d27cdb6e-ae6d-11cf-96b8-444553540000',
 				type : 'application/x-shockwave-flash',
 
 				codebase : 'http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0',
 				pluginspage : 'http://www.macromedia.com/go/getflashplayer',
 			},
-			object : {},
-			embed : {},
-		},
-		defaults_empty : {
-			params : {},
-			object : {},
-			embed : {},
-		},
+			attr : {
+				params : {},
+				object : {},
+				embed : {},
+			},
+		),
 		getArgs : function (options) {
-			var agv = $.extend(true, {}, $.scoEmbed.defaults.params, options);
-			var attr = $.extend(true, {}, $.scoEmbed.defaults_empty);
+			var agv = $.extend(true, {}, $.scoEmbed.defaults.setting, options);
+			var attr = $.extend(true, {}, $.scoEmbed.defaults.attr);
 
 			for(var _k in agv){
 				var _v = agv[_k];
