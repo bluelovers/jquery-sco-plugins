@@ -221,7 +221,6 @@
 
 			switch (ext) {
 				case 'swf':
-				default:
 					mod = 'flash';
 					break;
 			}
