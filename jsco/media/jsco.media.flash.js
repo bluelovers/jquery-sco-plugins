@@ -129,6 +129,19 @@
 
 			return $.extend(true, {}, attr);
 		},
+		getMimeTypeByExt : function (mode) {
+			var attr = {};
+			var mod = '';
+
+			switch (ext) {
+				case 'swf':
+				default:
+					mod = 'flash';
+					break;
+			}
+
+			return $.scoEmbed.getMimeType(mod);
+		},
 		toParamString : function (attr) {
 			var s = '';
 			for(var key in attr)
