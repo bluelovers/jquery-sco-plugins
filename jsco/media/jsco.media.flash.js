@@ -206,16 +206,8 @@
 		getMimeType : function (mode) {
 			var attr = {};
 
-			switch (mode) {
-				case 'flash':
-					attr = {
-						classid : 'clsid:d27cdb6e-ae6d-11cf-96b8-444553540000',
-						type : 'application/x-shockwave-flash',
-
-						codebase : 'http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0',
-						pluginspage : 'http://www.macromedia.com/go/getflashplayer',
-					};
-					break;
+			if ($.type($.scoEmbed.data.plugin[mode]) != 'undefined') {
+				attr = $.extend(true, {}, $.scoEmbed.data.plugin[mode].attr);
 			}
 
 			return $.extend(true, {}, attr);
