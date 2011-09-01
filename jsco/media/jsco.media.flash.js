@@ -41,7 +41,7 @@
 						break;
 					case "movie":
 					case "src":
-						attr.object["movie"] = _v;
+						attr.params["movie"] = _v;
 						attr.embed["src"] = _v;
 						break;
 					case "onafterupdate":
@@ -101,7 +101,7 @@
 						attr.embed[_k] = attr.object[_k] = _v;
 						break;
 					default:
-						attr.embed[_k] = _v;
+						attr.embed[_k] = attr.params[_k] = _v;
 						break;
 				};
 			}
