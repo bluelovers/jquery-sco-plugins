@@ -177,9 +177,12 @@
 		},
 		toParamString : function (attr) {
 			var s = '';
-			for(var key in attr)
-				if($.scoEmbed.isValidValue(attr[key]))
-					s += '<param name="' + key + '" value="'+attr[key]+'"/>';
+			for (var key in attr) {
+				var _v = attr[key];
+				if($.scoEmbed.isValidValue(_v)) {
+					s += '<param name="' + key + '" value="'+_v+'"/>';
+				}
+			}
 			return s;
 		},
 		/**
@@ -191,9 +194,12 @@
 		 */
 		toAttributeString : function (attr) {
 			var s = '';
-			for(var key in attr)
-				if($.scoEmbed.isValidValue(attr[key]))
-					s += key+'="'+attr[key]+'" ';
+			for (var key in attr) {
+				var _v = attr[key];
+				if ($.scoEmbed.isValidValue(_v)) {
+					s += key+'="'+_v+'" ';
+				}
+			}
 			return s;
 		},
 		/**
@@ -205,9 +211,12 @@
 		 */
 		toFlashvarsString : function (attr) {
 			var s = '';
-			for(var key in attr)
-				if($.scoEmbed.isValidValue(attr[key]))
-					s += key+'='+encodeURIComponent(attr[key])+'&';
+			for (var key in attr) {
+				var _v = attr[key];
+				if($.scoEmbed.isValidValue(_v)) {
+					s += key+'='+encodeURIComponent(_v)+'&';
+				}
+			}
 			return s.replace(/&$/, '');
 		},
 		toHtml : function (attr) {
