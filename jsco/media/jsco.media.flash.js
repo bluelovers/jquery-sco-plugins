@@ -129,7 +129,7 @@
 
 			return $.extend(true, {}, attr);
 		},
-		getMimeTypeByExt : function (mode) {
+		getMimeTypeByExt : function (ext) {
 			var attr = {};
 			var mod = '';
 
