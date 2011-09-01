@@ -25,9 +25,9 @@
 			},
 			format : '',
 		),
-		getArgs : function (options) {
+		getArgs : function (options, old_attr) {
 			var agv = $.extend(true, {}, $.scoEmbed.defaults.setting, options);
-			var attr = $.extend(true, {}, $.scoEmbed.defaults.attr);
+			var attr = $.extend(true, {}, $.scoEmbed.defaults.attr, old_attr);
 
 			for(var _k in agv){
 				var _v = agv[_k];
