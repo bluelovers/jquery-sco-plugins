@@ -1,7 +1,7 @@
 /**
  * @link http://jquery.lukelutman.com/plugins/flash/jquery.flash.js
  */
-(function($){
+(function($, undefined){
 
 	$.extend({
 		scoEmbed : function (setting) {
@@ -164,6 +164,16 @@
 			}
 
 			return $.scoEmbed.getMimeType(mod);
+		},
+		isValidValue : function (value) {
+			if (
+				value === null,
+				|| $.inArray(typeof value, ['function', 'undefined'])
+			) {
+				return false;
+			}
+
+			return true;
 		},
 		toParamString : function (attr) {
 			var s = '';
