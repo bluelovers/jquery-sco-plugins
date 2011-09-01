@@ -216,7 +216,6 @@
 			return $.extend(true, {}, attr);
 		},
 		getMimeTypeByExt : function (ext) {
-			var attr = {};
 			var mod = '';
 
 			switch (ext) {
