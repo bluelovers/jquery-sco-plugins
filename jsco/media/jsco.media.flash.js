@@ -178,7 +178,7 @@
 		toParamString : function (attr) {
 			var s = '';
 			for(var key in attr)
-				if(typeof attr[key] != 'function')
+				if($.scoEmbed.isValidValue(attr[key]))
 					s += '<param name="' + key + '" value="'+attr[key]+'"/>';
 			return s;
 		},
@@ -192,7 +192,7 @@
 		toAttributeString : function (attr) {
 			var s = '';
 			for(var key in attr)
-				if(typeof attr[key] != 'function')
+				if($.scoEmbed.isValidValue(attr[key]))
 					s += key+'="'+attr[key]+'" ';
 			return s;
 		},
@@ -206,7 +206,7 @@
 		toFlashvarsString : function (attr) {
 			var s = '';
 			for(var key in attr)
-				if(typeof attr[key] != 'function')
+				if($.scoEmbed.isValidValue(attr[key]))
 					s += key+'='+encodeURIComponent(attr[key])+'&';
 			return s.replace(/&$/, '');
 		},
