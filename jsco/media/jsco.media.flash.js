@@ -103,6 +103,8 @@
 					case "onbeforedeactivate":
 					case "ondeactivate":
 					case "codebase":
+
+					case "flashvars":
 						attr.object[_k] = _v;
 						break;
 					case "width":
