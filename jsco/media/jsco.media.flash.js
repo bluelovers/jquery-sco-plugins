@@ -23,7 +23,9 @@
 				object : {},
 				embed : {},
 			},
-			format : '',
+			conf : {
+				format : '',
+			},
 		),
 		getArgs : function (options, old_attr) {
 			var agv = $.extend(true, {}, $.scoEmbed.defaults.setting, options);
