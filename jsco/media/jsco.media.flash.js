@@ -152,6 +152,13 @@
 				object : '',
 			};
 
+			html.embed =
+				'<embed '
+				+ $.scoEmbed.toAttributeString(attr.embed)
+				+ '>'
+				+ '</embed>'
+			;
+
 			html.object =
 				'<object '
 				+ $.scoEmbed.toAttributeString(attr.object)
