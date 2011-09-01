@@ -79,7 +79,6 @@
 					case "onactivate":
 					case "onbeforedeactivate":
 					case "ondeactivate":
-					case "type":
 					case "codebase":
 						attr.object[_k] = _v;
 						break;
@@ -94,6 +93,7 @@
 					case "name":
 					case "id":
 					case "tabindex":
+					case "type":
 						attr.embed[_k] = attr.object[_k] = _v;
 						break;
 					default:
