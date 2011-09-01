@@ -103,8 +103,6 @@
 					case "onbeforedeactivate":
 					case "ondeactivate":
 					case "codebase":
-
-					case "flashvars":
 						attr.object[_k] = _v;
 						break;
 					case "width":
@@ -123,6 +121,7 @@
 					case "type":
 						attr.embed[_k] = attr.object[_k] = _v;
 						break;
+					case "flashvars":
 					default:
 						attr.embed[_k] = attr.params[_k] = _v;
 						break;
@@ -207,14 +206,16 @@
 			var flashvars;
 			if (typeof attr.options.flashvars == 'object') {
 				flashvars = attr.options.flashvars;
-				flashvars = toFlashvarsString(flashvars);
+				flashvars = $.scoEmbed.toFlashvarsString(flashvars);
+			} else if (!$.isUndefined(attr.options.flashvars)) {
+				flashvars = $.scoEmbed.attr.options.flashvars;
 			}
 
 			if (flashvars) {
 				attr.params.flashvars = flashvars;
 				attr.embed.flashvars = flashvars;
 
-				attr.embed.src += ((/?/.test(attr.embed.src)) ? '&' : '?') + flashvars;
+				attr.embed.src += ((/\?/.test(attr.embed.src)) ? '&' : '?') + flashvars;
 
 			} else {
 				attr.params.flashvars = '';
