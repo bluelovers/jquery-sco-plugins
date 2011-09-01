@@ -93,6 +93,8 @@
 					case "name":
 					case "id":
 					case "tabindex":
+						attr.embed[_k] = attr.object[_k] = _v;
+						break;
 					case "type":
 						attr.embed[_k] = attr.object[_k] = _v;
 						break;
