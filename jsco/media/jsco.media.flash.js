@@ -37,9 +37,10 @@
 					case "pluginspage":
 						attr.embed[_k] = _v;
 						break;
+					case "movie":
 					case "src":
 						attr.object["movie"] = _v;
-						attr.embed[_k] = _v;
+						attr.embed["src"] = _v;
 						break;
 					case "codebase":
 						attr.object[_k] = _v;
