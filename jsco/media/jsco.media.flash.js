@@ -110,7 +110,7 @@
 
 			return attr;
 		},
-		setMimeType : function (obj, classid, mimeType) {
+		getMimeType : function (mode) {
 
 		},
 		toParamString : function (attr) {
