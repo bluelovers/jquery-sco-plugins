@@ -218,8 +218,13 @@
 				attr.embed.src += ((/\?/.test(attr.embed.src)) ? '&' : '?') + flashvars;
 
 			} else {
-				attr.params.flashvars = '';
-				attr.embed.flashvars = '';
+				try {
+					attr.params.flashvars = null;
+					attr.embed.flashvars = null;
+
+					delete attr.params.flashvars;
+					delete attr.embed.flashvars;
+				} catch (e) {}
 			}
 
 			html.embed =
