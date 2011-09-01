@@ -204,6 +204,23 @@
 				object : '',
 			};
 
+			var flashvars;
+			if (typeof attr.options.flashvars == 'object') {
+				flashvars = attr.options.flashvars;
+				flashvars = toFlashvarsString(flashvars);
+			}
+
+			if (flashvars) {
+				attr.params.flashvars = flashvars;
+				attr.embed.flashvars = flashvars;
+
+				attr.embed.src += ((/?/.test(attr.embed.src)) ? '&' : '?') + flashvars
+
+			} else {
+				attr.params.flashvars = '';
+				attr.embed.flashvars = '';
+			}
+
 			html.embed =
 				'<embed '
 				+ $.scoEmbed.toAttributeString(attr.embed)
