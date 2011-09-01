@@ -17,6 +17,8 @@
 
 				codebase : 'http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0',
 				pluginspage : 'http://www.macromedia.com/go/getflashplayer',
+
+				autostart : 0,
 			},
 			attr : {
 				params : {},
