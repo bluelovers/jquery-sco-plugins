@@ -4,23 +4,37 @@
 (function($, undefined){
 
 	$.extend({
-		scoEmbed : function (setting) {
+		scoEmbed : function (setting, conf) {
 			/*
 			var _this = $('<span/>');
 			*/
-			setting = $.scoEmbed.getArgs(setting);
+			var setting = $.scoEmbed.getArgs(setting);
 			var html = $.scoEmbed.toHtml(setting);
+
+			$.scoEmbed.setup(conf);
+
+			var conf = $.scoEmbed.data.conf;
+
+			$.scoEmbed.log([
+				conf,
+				setting,
+			]);
 
 			var ret;
 
-			if ($.browser.mozilla) {
-				html.object.removeAttr('id');
-				ret = html.embed;
-			} else if ($.browser.msie) {
-				html.embed.removeAttr('id');
-				ret = html.object;
+			if (conf
+				&& conf['format']
+				&& $.inArray(conf['format'], ['all', 'embed', 'object']) != -1
+			) {
+				ret = html[conf['format']];
 			} else {
-				ret = html.object;
+				if ($.browser.mozilla) {
+					ret = html.embed;
+				} else if ($.browser.msie) {
+					ret = html.object;
+				} else {
+					ret = html.all;
+				}
 			}
 
 			return ret;
@@ -29,6 +43,7 @@
 
 	$.extend($.scoEmbed, {
 		log : function(a){
+			if (!$.scoEmbed.data.conf['debug']) return;
 			console.log(a);
 		},
 		defaults : {
@@ -59,7 +74,28 @@
 			},
 			conf : {
 				format : '',
+				debug : false,
+				init_conf : true,
 			},
+		},
+		data : {
+			conf : {
+				init_conf : false,
+			},
+		},
+		setup : function (conf) {
+			if (!$.scoEmbed.data.conf.init_conf) {
+				$.extend($.scoEmbed.data.conf, {},
+					$.scoEmbed.defaults.conf,
+					conf
+				);
+			} else if ($.type(conf) != 'undefined') {
+				$.extend($.scoEmbed.data.conf, {},
+					conf
+				);
+			}
+
+			return this;
 		},
 		getArgs : function (options, old_attr) {
 			var agv = $.extend(true, {}, $.scoEmbed.defaults.setting, options);
@@ -306,6 +342,8 @@
 			html.object = $(html.object)
 				.width(attr.options.width)
 				.height(attr.options.height)
+			;
+			html.all = html.object.clone()
 				.append(html.embed)
 			;
 
