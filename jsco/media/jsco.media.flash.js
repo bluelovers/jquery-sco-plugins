@@ -5,8 +5,9 @@
 
 	$.extend({
 		scoEmbed : function (setting) {
+			/*
 			var _this = $('<span/>');
-
+			*/
 			setting = $.scoEmbed.getArgs(setting);
 			var html = $.scoEmbed.toHtml(setting);
 
