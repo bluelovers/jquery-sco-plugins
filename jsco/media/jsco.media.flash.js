@@ -167,8 +167,8 @@
 		},
 		isValidValue : function (value) {
 			if (
-				value === null,
-				|| $.inArray(typeof value, ['function', 'undefined'])
+				value === null
+				|| $.inArray($.type(value), ['function', 'undefined']) != -1
 			) {
 				return false;
 			}
@@ -176,7 +176,7 @@
 			return true;
 		},
 		toStringValue : function (value) {
-			if ($.isValue(value)) {
+			if ($.isArray(value)) {
 				value = value.join(',');
 			}
 			return value;
