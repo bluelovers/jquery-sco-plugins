@@ -8,12 +8,12 @@
 			/*
 			var _this = $('<span/>');
 			*/
-			var setting = $.scoEmbed.getArgs(setting);
-			var html = $.scoEmbed.toHtml(setting);
 
 			$.scoEmbed.setup(conf);
-
 			var conf = $.scoEmbed.data.conf;
+
+			var setting = $.scoEmbed.getArgs(setting);
+			var html = $.scoEmbed.toHtml(setting);
 
 			$.scoEmbed.log([
 				conf,
@@ -76,6 +76,10 @@
 				format : '',
 				debug : false,
 				init_conf : true,
+
+				disable : {
+					encodeURIComponent : false,
+				},
 			},
 		},
 		data : {
@@ -94,6 +98,8 @@
 					conf
 				);
 			}
+
+			$.scoEmbed.log($.scoEmbed.data.conf);
 
 			return this;
 		},
@@ -274,7 +280,11 @@
 				if($.scoEmbed.isValidValue(_v)) {
 					_v = $.scoEmbed.toStringValue(_v);
 
-					s += key+'='+encodeURIComponent(_v)+'&';
+					if (!$.scoEmbed.data.conf.disable.encodeURIComponent) {
+						_v = encodeURIComponent(_v);
+					}
+
+					s += key+'='+_v+'&';
 				}
 			}
 			return s.replace(/&+$/, '');
