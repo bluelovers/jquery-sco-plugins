@@ -32,6 +32,7 @@
 
 				switch (_k) {
 					case "classid":
+					case "codebase":
 						attr.object[_k] = _v;
 						break;
 					case "pluginspage":
@@ -41,9 +42,6 @@
 					case "src":
 						attr.object["movie"] = _v;
 						attr.embed["src"] = _v;
-						break;
-					case "codebase":
-						attr.object[_k] = _v;
 						break;
 					case "onafterupdate":
 					case "onbeforeupdate":
